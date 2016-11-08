@@ -2,6 +2,7 @@
 
 This project was done for the EECSE 4764 class at Columbia University. The details of the project are explained in the file Lab6.pdf.
 To run the code on a ESP8266 chip you need to:
+
 0. In the file esp8266_code/main.py set the ESSID and password of your current WiFi network.
 1. Flash the files: accelerometer.py, buttons.py, shared.py twitter.py and main.py in the Huzzah (you can do that in the mpfshell with the command: put <my_file>). The file main.py will be automatically launched when you reset the chip.
 2. Load the Android app in an Android smartphone on which USB debugging has been enabled.
@@ -16,4 +17,4 @@ To run the code on a ESP8266 chip you need to:
 After completing all these steps the smart watch is ready to use ! Here is a diagram that sums up how the global system was built.
 
 #### Architecture of the smart watch environment
-![alt tag](https://github.com/eloyyy/smart_watch/cloud_architecture.jpg)
+![alt tag](https://github.com/eloyyy/smart_watch/cloud_architecture.JPG)
