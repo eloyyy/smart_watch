@@ -17,4 +17,4 @@ To run the code on a ESP8266 chip you need to:
 After completing all these steps the smart watch is ready to use ! Here is a diagram that sums up how the global system was built.
 
 #### Architecture of the smart watch environment
-![alt tag](https://github.com/eloyyy/smart_watch/cloud_architecture.JPG)
+![alt tag](https://github.com/eloyyy/smart_watch/blob/master/architecture_smart_watch.JPG)
