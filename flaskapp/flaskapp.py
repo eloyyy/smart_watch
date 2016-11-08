@@ -10,11 +10,15 @@ from pymongo.cursor import CursorType
 import requests
 import geocoder
 
+# API KEYS
+API_KEY_TWITTER = ''
+API_KEY_WEATHER = ''
+
 
 # Set the mongo database
 MONGO_DB_URL = os.environ.get('MONGO_DB_URL')
 collection_accelerometer = MongoClient(MONGO_DB_URL).accelerometer.measures
-#cursor = collection_accelerometer.find({}, cursor_type = CursorType.TAILABLE_AWAIT)
+
 
 # Run the server
 app = Flask(__name__)
@@ -59,11 +63,11 @@ def get_data():
 
 @app.route('/weather', methods=['GET'])
 def weather_api_call():
+    global API_KEY_WEATHER
     lat = request.args.get('lat', '')
     lon = request.args.get('lon', '')
 
     # Make the call to the Open Weather API
-    API_KEY_WEATHER = '5aa82550b772f209913c43cfe21fc0e7'
     url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + str(lat) + '&lon=' + str(lon) +'&appid=' + str(API_KEY_WEATHER)
     r = requests.get(url)
     r = r.json()
@@ -101,10 +105,10 @@ def geoloc_api_call():
 
 @app.route('/tweet', methods=['GET'])
 def twitter_api_call():
+    global API_KEY_TWITTER
     tweet = str(request.args.get('text', ''))
 
     # Make the call to the twitter API through the Thingspeak API
-    API_KEY_TWITTER = 'T3PE2122D50F1247'
     url = 'http://api.thingspeak.com/apps/thingtweet/1/statuses/update'
     r = requests.post(url, data = {'api_key':API_KEY_TWITTER, 'status':tweet})
     data = dict()
